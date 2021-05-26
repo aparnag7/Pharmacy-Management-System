@@ -1,0 +1,85 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.JComboBox;
+
+public class AddDrugs extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JTextField textField;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JTextField textField6;
+    private JTextField textField7;
+    private JTextField textField8;
+
+    private JPasswordField passwordField;
+    private JButton btnNewButton;
+    private JPanel contentPane;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+    	EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                	
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+    public AddDrugs() {
+    	setBackground(new Color(255, 127, 80));    
+                try {
+                  //  BackgroundPane background = new BackgroundPane();
+				//	background.setBackground(ImageIO.read(new File("C:\\\\Users\\\\hp\\\\Desktop\\\\SEM-6\\\\javaswing\\\\images\\\\bg3.jpeg")));
+	                JFrame frame = new JFrame("Add Drugs");
+	                frame.setBounds(1000,1000,807,205);
+	                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			        setBounds(450, 190, 1124, 657);
+			        setResizable(true);
+			        frame.pack();
+			        frame.setLocationRelativeTo(null);
+			        frame.setVisible(true);
+			        System.out.println("Drugs Form");
+                }
+                finally {
+                	
+                }
+                
+    	} 
+ }

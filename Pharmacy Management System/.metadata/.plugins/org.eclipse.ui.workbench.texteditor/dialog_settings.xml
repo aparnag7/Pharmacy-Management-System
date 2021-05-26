@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="true"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="saleshistory"/>
+		<list key="findhistory">
+			<item value="saleshistory"/>
+			<item value="saleshi"/>
+			<item value="bought"/>
+			<item value="find_customer"/>
+			<item value="(bought"/>
+			<item value="DisplayBill"/>
+			<item value="UserLogin"/>
+			<item value="comboBox_2.addItem"/>
+			<item value="GenerateBill"/>
+			<item value="G.add"/>
+			<item value="emp"/>
+			<item value="employee login"/>
+			<item value="searchdrug"/>
+			<item value="productsAdded"/>
+			<item value="msgid "/>
+		</list>
+		<list key="replacehistory">
+			<item value="CustomerLogin"/>
+			<item value="CustomerRegister"/>
+			<item value="fetchButton"/>
+			<item value="msg_rcvd"/>
+			<item value="ViewMsgbutton"/>
+			<item value="Messagebutton"/>
+			<item value="GenerateBillbuton"/>
+			<item value="VProfitbutton"/>
+			<item value="GenerateBill"/>
+			<item value="AddOtherProducts"/>
+			<item value="weight"/>
+			<item value="product_name"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1256"/>
+		<item key="DIALOG_Y_ORIGIN" value="45"/>
+		<item key="DIALOG_WIDTH" value="385"/>
+		<item key="DIALOG_HEIGHT" value="523"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

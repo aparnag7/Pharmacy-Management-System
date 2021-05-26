@@ -1,0 +1,235 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.JComboBox;
+import com.toedter.calendar.JDayChooser;
+import com.toedter.calendar.JCalendar;
+import java.awt.SystemColor;
+import java.awt.TextField;
+
+import com.toedter.calendar.JDateChooser;
+import javax.swing.SwingConstants;
+import java.awt.Insets;
+import javax.swing.JRadioButton;
+import javax.swing.JList;
+import javax.swing.ListSelectionModel;
+import javax.swing.AbstractListModel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.JRadioButtonMenuItem;
+
+public class AddDrugs extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JTextField textField6;
+    private JTextField textField7;
+    private JTextField textField8;
+    JPanel panel;
+    JLabel user_label, password_label, message;
+    JTextField CostPrice_text;
+    JPasswordField password_text;
+    JButton submit, cancel;
+    private JPanel contentPane;
+    private JTextField Drugname;
+    private JTextField CompanyName;
+    private JTextField CostPrice;
+
+    private JButton btnNewButton;
+    private JTextField SellingPrice;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+    	EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                	
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    } 
+
+    public AddDrugs() throws IOException {
+    	setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\hp\\Desktop\\SEM-6\\javaswing\\images"));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(450, 190, 1014, 597);
+        setResizable(false);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+        
+        
+        
+
+        JLabel lblAddDrugs = new JLabel("Add new Drugs");
+        lblAddDrugs.setFont(new Font("Times New Roman", Font.PLAIN, 42));
+        lblAddDrugs.setBounds(362, 52, 325, 50);
+        contentPane.add(lblAddDrugs);
+
+        JLabel lblDName = new JLabel("Drug name");
+        lblDName.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        lblDName.setBounds(58, 152, 99, 43);
+        contentPane.add(lblDName);
+
+        JLabel lblCompany = new JLabel("Company name");
+        lblCompany.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        lblCompany.setBounds(521, 159, 150, 29);
+        contentPane.add(lblCompany);
+
+        JLabel lbldosage = new JLabel("Dosage");
+        lbldosage.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        lbldosage.setBounds(58, 324, 124, 36);
+        contentPane.add(lbldosage);
+
+        Drugname = new JTextField();
+        Drugname.setFont(new Font("Tahoma", Font.PLAIN, 32));
+        Drugname.setBounds(214, 151, 228, 50);
+        contentPane.add(Drugname);
+        Drugname.setColumns(10);
+
+        CompanyName = new JTextField();
+        CompanyName.setFont(new Font("Tahoma", Font.PLAIN, 32));
+        CompanyName.setBounds(707, 151, 246, 50);
+        contentPane.add(CompanyName);
+        CompanyName.setColumns(10);
+
+        CostPrice = new JTextField();
+        CostPrice.setFont(new Font("Tahoma", Font.PLAIN, 32));
+        CostPrice.setBounds(214, 235, 228, 50);
+        contentPane.add(CostPrice);
+        CostPrice.setColumns(10);
+
+        JLabel lblCostPrice = new JLabel("CostPrice");
+        lblCostPrice.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        lblCostPrice.setBounds(58, 250, 99, 29);
+        contentPane.add(lblCostPrice);
+
+        JLabel lblSellPrice = new JLabel("Selling Price");
+        lblSellPrice.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        lblSellPrice.setBounds(542, 245, 129, 24);
+        contentPane.add(lblSellPrice);
+        
+        JLabel lblNewLabel = new JLabel("Drug Type");
+        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        lblNewLabel.setBounds(542, 330, 117, 25);
+        contentPane.add(lblNewLabel);
+        
+        JSpinner spinner = new JSpinner();
+        spinner.setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(0)));
+        spinner.setBounds(214, 336, 228, 20);
+        contentPane.add(spinner);
+        
+        JDateChooser manDate = new JDateChooser();
+        manDate.setBounds(214, 421, 217, 20);
+        contentPane.add(manDate);
+        
+        JLabel lblNewLabel_1 = new JLabel("Manufacturing Date");
+        lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
+        lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        lblNewLabel_1.setBounds(10, 410, 198, 43);
+        contentPane.add(lblNewLabel_1);
+        
+        JDateChooser Exp_date = new JDateChooser();
+        Exp_date.setBounds(707, 421, 246, 20);
+        contentPane.add(Exp_date);
+        
+        JLabel lblNewLabel_2 = new JLabel("Expiry Date");
+        lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        lblNewLabel_2.setBounds(541, 421, 132, 32);
+        contentPane.add(lblNewLabel_2);
+                
+        SellingPrice = new JTextField();
+        SellingPrice.setBounds(704, 235, 249, 50);
+        contentPane.add(SellingPrice);
+        SellingPrice.setColumns(10);
+        
+        JRadioButton rdbtnNewRadioButton = new JRadioButton("Tablet");
+        rdbtnNewRadioButton.setBounds(707, 335, 111, 23);
+        contentPane.add(rdbtnNewRadioButton);
+        
+        JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Injection Fluid");
+        rdbtnNewRadioButton_1.setBounds(858, 335, 111, 23);
+        contentPane.add(rdbtnNewRadioButton_1);
+        
+        JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Syrup");
+        rdbtnNewRadioButton_2.setBounds(707, 369, 111, 23);
+        contentPane.add(rdbtnNewRadioButton_2);
+        
+        JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Cream");
+        rdbtnNewRadioButton_3.setBounds(858, 369, 111, 23);
+        contentPane.add(rdbtnNewRadioButton_3);
+        ButtonGroup G = new ButtonGroup();
+        
+        JButton btnNewButton_1 = new JButton("Add Drug");
+        btnNewButton_1.setForeground(new Color(255, 0, 51));
+        btnNewButton_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		System.out.println("Drug Form in action");
+        		String drug_name = Drugname.getText();
+        		String company_name = CompanyName.getText();
+        		double dosage = (double) spinner.getValue();
+        		SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+        		String man_date = sdf1.format(manDate.getDate());
+        		SimpleDateFormat sdf2 = new SimpleDateFormat("dd-MM-yyyy");
+        		String exp_date = sdf1.format(Exp_date.getDate());
+        		try {
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root", "Phoebe2001#");
+				} catch (ClassNotFoundException | SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}  
+                
+                System.out.println("Connection made\n" + drug_name +" " + man_date+" "+dosage);	
+        	}
+        });
+        btnNewButton_1.setBackground(SystemColor.textHighlight);
+        btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        btnNewButton_1.setBounds(458, 503, 179, 23);
+        contentPane.add(btnNewButton_1);
+}
+}

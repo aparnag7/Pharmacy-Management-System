@@ -1,0 +1,125 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.UIManager;
+
+public class UserRegister extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JTextField textField;
+    private JTextField textField2;
+    private JPasswordField passwordField;
+    private JButton btnNewButton;
+    private JLabel label;
+    private JPanel contentPane;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    UserRegister frame = new UserRegister();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * Create the frame.
+     */
+    public UserRegister() {
+    	
+    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 	
+    	
+        setBounds(1200, 1200, 1200, 1200);
+        setResizable(false);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+        
+        JLabel lblNewLabel = new JLabel("Employee Register\r\n");
+        lblNewLabel.setForeground(new Color(0, 0, 128));
+        lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 46));
+        lblNewLabel.setBounds(334, 11, 510, 93);
+        contentPane.add(lblNewLabel);
+
+        textField = new JTextField();
+        textField.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
+        textField.setFont(new Font("Tahoma", Font.PLAIN, 32));
+        textField.setBounds(249, 125, 281, 68);
+        contentPane.add(textField);
+        textField.setColumns(10);
+
+        passwordField = new JPasswordField();
+        passwordField.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
+        passwordField.setFont(new Font("Tahoma", Font.PLAIN, 32));
+        passwordField.setBounds(249, 229, 281, 68);
+        contentPane.add(passwordField);
+        //name 
+        textField2 = new JTextField();
+        textField2.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
+        textField2.setFont(new Font("Tahoma", Font.PLAIN, 32));
+        textField2.setBounds(895, 229, 281, 68);
+        contentPane.add(textField2);
+        textField2.setColumns(10);
+        
+        //username
+        JLabel lblUsername = new JLabel("Username");
+        lblUsername.setBackground(Color.BLACK);
+        lblUsername.setForeground(new Color(0, 0, 128));
+        lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 31));
+        lblUsername.setBounds(46, 229, 193, 52);
+        contentPane.add(lblUsername);
+        //password
+        JLabel lblPassword = new JLabel("Password");
+        lblPassword.setForeground(new Color(0, 0, 139));
+        lblPassword.setBackground(Color.CYAN);
+        lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 31));
+        lblPassword.setBounds(737, 237, 193, 52);
+        contentPane.add(lblPassword);
+        //now get details
+        JLabel lblName = new JLabel("Name");
+        lblName.setForeground(new Color(0, 0, 139));
+        lblName.setBackground(Color.CYAN);
+        lblName.setFont(new Font("Tahoma", Font.PLAIN, 31));
+        lblName.setBounds(46, 123, 193, 52);
+        contentPane.add(lblName);
+        
+        btnNewButton =  new JButton("Register");
+        btnNewButton.setForeground(UIManager.getColor("FormattedTextField.selectionBackground"));
+        btnNewButton.setBackground(UIManager.getColor("FormattedTextField.selectionBackground"));
+        btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 26));
+        btnNewButton.setBounds(545, 392, 162, 73);
+    
+        contentPane.add(btnNewButton);
+        label = new JLabel("");
+        label.setBackground(UIManager.getColor("FormattedTextField.selectionBackground"));
+        label.setBounds(10, -24, 1176, 607);
+        contentPane.add(label);
+    }
+}

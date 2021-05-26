@@ -1,0 +1,53 @@
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+import java.awt.BorderLayout;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+public class UserRegister extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JTextField textField;
+    private JPasswordField passwordField;
+    private JButton btnNewButton;
+    private JLabel label;
+    private JPanel contentPane;
+	public UserRegister() {
+		setBackground(new Color(255, 255, 153));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(450, 190, 1014, 597);
+        setResizable(false);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+		JLabel lblNewLabel = new JLabel("Employee Register");
+        lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 46));
+		getContentPane().add(lblNewLabel, BorderLayout.NORTH);
+		
+	}
+
+	 public static void main(String[] args) {
+	        EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                try {
+
+	                } catch (Exception e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        });
+	    }
+
+}

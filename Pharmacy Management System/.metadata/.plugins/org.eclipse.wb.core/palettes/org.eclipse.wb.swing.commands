@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<visibleElement
+		id="org.eclipse.wb.swing.JGoodies"
+		visible="false"/>
+	<visibleElement
+		id="org.eclipse.wb.swing.components"
+		visible="true"/>
+	<visibleElement
+		id="org.eclipse.wb.swing.system"
+		visible="true"/>
+	<visibleElement
+		id="org.eclipse.wb.swing.containers"
+		visible="true"/>
+	<visibleElement
+		id="org.eclipse.wb.swing.layouts"
+		visible="true"/>
+	<visibleElement
+		id="org.eclipse.wb.swing.BoxLayout"
+		visible="true"/>
+	<visibleElement
+		id="org.eclipse.wb.swing.actions"
+		visible="true"/>
+	<visibleElement
+		id="org.eclipse.wb.swing.components.menu"
+		visible="true"/>
+	<visibleElement
+		id="org.eclipse.wb.swing.components.awt"
+		visible="true"/>
+	<addCategory
+		id="jcalendar-1.4_1620133569058"
+		name="jcalendar-1.4"
+		description="Container with import elements from C:\Users\hp\Downloads\jcalendar-1.4\lib\jcalendar-1.4.jar"
+		visible="true"
+		open="true"/>
+	<addComponent
+		id="com.toedter.calendar.JDayChooser_1620133569058"
+		name="JDayChooser"
+		description="Custom component: com.toedter.calendar.JDayChooser"
+		visible="true"
+		class="com.toedter.calendar.JDayChooser"
+		category="jcalendar-1.4_1620133569058"/>
+	<addComponent
+		id="com.toedter.calendar.JMonthChooser_1620133569058"
+		name="JMonthChooser"
+		description="Custom component: com.toedter.calendar.JMonthChooser"
+		visible="true"
+		class="com.toedter.calendar.JMonthChooser"
+		category="jcalendar-1.4_1620133569058"/>
+	<addComponent
+		id="com.toedter.components.JLocaleChooser_1620133569058"
+		name="JLocaleChooser"
+		description="Custom component: com.toedter.components.JLocaleChooser"
+		visible="true"
+		class="com.toedter.components.JLocaleChooser"
+		category="jcalendar-1.4_1620133569058"/>
+	<addComponent
+		id="com.toedter.calendar.JCalendar_1620133569058"
+		name="JCalendar"
+		description="Custom component: com.toedter.calendar.JCalendar"
+		visible="true"
+		class="com.toedter.calendar.JCalendar"
+		category="jcalendar-1.4_1620133569058"/>
+	<addComponent
+		id="com.toedter.calendar.JDateChooser_1620133569058"
+		name="JDateChooser"
+		description="Custom component: com.toedter.calendar.JDateChooser"
+		visible="true"
+		class="com.toedter.calendar.JDateChooser"
+		category="jcalendar-1.4_1620133569058"/>
+	<addComponent
+		id="com.toedter.components.JSpinField_1620133569058"
+		name="JSpinField"
+		description="Custom component: com.toedter.components.JSpinField"
+		visible="true"
+		class="com.toedter.components.JSpinField"
+		category="jcalendar-1.4_1620133569058"/>
+	<addComponent
+		id="com.toedter.calendar.JYearChooser_1620133569058"
+		name="JYearChooser"
+		description="Custom component: com.toedter.calendar.JYearChooser"
+		visible="true"
+		class="com.toedter.calendar.JYearChooser"
+		category="jcalendar-1.4_1620133569058"/>
+	<moveCategory
+		id="org.eclipse.wb.swing.components.menu"/>
+</commands>

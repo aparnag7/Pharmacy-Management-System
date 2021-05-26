@@ -1,0 +1,39 @@
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import java.awt.BorderLayout;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+public class UserRegister extends JFrame {
+	public UserRegister() {
+		setBackground(new Color(255, 255, 153));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(450, 190, 1014, 597);
+        setResizable(false);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+		JLabel lblNewLabel = new JLabel("Employee Register");
+		getContentPane().add(lblNewLabel, BorderLayout.NORTH);
+		
+	}
+
+	 public static void main(String[] args) {
+	        EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                try {
+
+	                } catch (Exception e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        });
+	    }
+
+}

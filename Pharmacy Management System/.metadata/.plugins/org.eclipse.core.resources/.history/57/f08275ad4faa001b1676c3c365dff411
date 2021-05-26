@@ -1,0 +1,232 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.UIManager;
+
+public class UserRegister extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JTextField textField;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JPasswordField passwordField;
+    private JButton btnNewButton;
+    private JLabel label;
+    private JPanel contentPane;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    UserRegister frame = new UserRegister();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * Create the frame.
+     */
+    public UserRegister() {
+    	InitBackGround();
+    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(450, 190, 1014, 597);
+        setResizable(true);
+        contentPane = new JPanel(); 
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+        
+        //add scrollbar
+ 
+       /* JScrollPane scrollPane = new JScrollPane(contentPane);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setBounds(50, 30, 300, 50);
+        JPanel panel = new JPanel(null);
+        panel.setPreferredSize(new Dimension(500, 400));
+        panel.add(scrollPane);
+        this.setContentPane(panel);
+        this.pack();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setVisible(true);       
+*/
+        JLabel lblNewLabel = new JLabel("Employee Register\r\n");
+        lblNewLabel.setForeground(new Color(0, 0, 128));
+        lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 46));
+        lblNewLabel.setBounds(334, 11, 510, 93);
+        contentPane.add(lblNewLabel);
+        textField = new JTextField();
+        textField.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
+        textField.setFont(new Font("Tahoma", Font.PLAIN, 32));
+        textField.setBounds(256, 125, 170, 52);
+        contentPane.add(textField);
+        textField.setColumns(10);
+
+        passwordField = new JPasswordField();
+        passwordField.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
+        passwordField.setFont(new Font("Tahoma", Font.PLAIN, 32));
+        passwordField.setBounds(787, 365, 176, 68);
+        contentPane.add(passwordField);
+        //name 
+        textField2 = new JTextField();
+        textField2.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
+        textField2.setFont(new Font("Tahoma", Font.PLAIN, 32));
+        textField2.setBounds(787, 125, 176, 52);
+        contentPane.add(textField2);
+        textField2.setColumns(10);
+        //designation
+        textField3 = new JTextField();
+        textField3.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
+        textField3.setFont(new Font("Tahoma", Font.PLAIN, 32));
+        textField3.setBounds(250, 241, 176, 59);
+        contentPane.add(textField3);
+        textField3.setColumns(10);
+        
+        textField4 = new JTextField();
+        textField4.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
+        textField4.setFont(new Font("Tahoma", Font.PLAIN, 32));
+        textField4.setBounds(250, 369, 176, 59);
+        contentPane.add(textField4);
+        textField4.setColumns(10);
+
+        
+        //username
+        JLabel lblUsername = new JLabel("Username");
+        lblUsername.setBackground(Color.BLACK);
+        lblUsername.setForeground(new Color(0, 0, 128));
+        lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 31));
+        lblUsername.setBounds(53, 373, 193, 52);
+        contentPane.add(lblUsername);
+        //password
+        JLabel lblPassword = new JLabel("Password");
+        lblPassword.setForeground(new Color(0, 0, 139));
+        lblPassword.setBackground(Color.CYAN);
+        lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 31));
+        lblPassword.setBounds(602, 373, 193, 52);
+        contentPane.add(lblPassword);
+        //now get details
+        JLabel lblName = new JLabel("Name");
+        lblName.setForeground(new Color(0, 0, 139));
+        lblName.setBackground(Color.CYAN);
+        lblName.setFont(new Font("Tahoma", Font.PLAIN, 31));
+        lblName.setBounds(53, 125, 193, 52);
+        contentPane.add(lblName);
+        //designation
+        JLabel lblDesgn = new JLabel("Designation");
+        lblDesgn.setForeground(new Color(0, 0, 139));
+        lblDesgn.setBackground(Color.CYAN);
+        lblDesgn.setFont(new Font("Tahoma", Font.PLAIN, 31));
+        lblDesgn.setBounds(602, 125, 193, 52);
+        contentPane.add(lblDesgn);
+        
+        JLabel lblAge = new JLabel("Age");
+        lblAge.setForeground(new Color(0, 0, 139));
+        lblAge.setBackground(Color.CYAN);
+        lblAge.setFont(new Font("Tahoma", Font.PLAIN, 31));
+        lblAge.setBounds(42, 245, 193, 52);
+        contentPane.add(lblAge);
+
+        
+        btnNewButton =  new JButton("Register");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		String Name = textField.getText();
+        		String designation = textField2.getText();
+        		String username = textField4.getText();
+        		String age = textField3.getText();
+                String password = passwordField.getText();
+                int Age = Integer.parseInt(age);
+                boolean flag = false;
+                try {
+                	Class.forName("com.mysql.jdbc.Driver");  
+                    Connection connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root", "Phoebe2001#");
+                    System.out.println("Connection made");
+                    PreparedStatement st = (PreparedStatement) connection
+                        .prepareStatement("Select name, password from users where name=? and password=?");
+                    Statement stmt = null;
+                    System.out.println("Inserting into DB---Table employee");
+                    stmt = connection.createStatement();
+
+                    String query = " insert into employee (Eid, EName, EDesignation, EAge)" + " values (?, ?, ?,?)";
+
+                    PreparedStatement preparedStmt = connection.prepareStatement(query);
+                    preparedStmt.setInt(1, 114);
+                    preparedStmt.setString(2, Name);
+                    preparedStmt.setString(3, designation);
+                    preparedStmt.setInt(4, Age);
+                    preparedStmt.execute();
+                    flag = true;
+                    if (flag) {                         
+                        dispose();
+                        UserHome ah = new UserHome(username);
+                        ah.setTitle("Welcome");
+                        ah.setVisible(true);
+                        JOptionPane.showMessageDialog(btnNewButton, "You have successfully logged in");
+                        flag = true;
+                    } else {
+                        JOptionPane.showMessageDialog(btnNewButton, "User Name already exists");
+                    }
+                    if(flag) {
+                   	 String query2 = "insert into users (idusers,name,password)" + "values(?,?,?)";
+                     PreparedStatement preparedStmt2 = connection.prepareStatement(query2);
+                     preparedStmt2.setInt(1, 114);
+                     preparedStmt2.setString(2, username);
+                     preparedStmt2.setString(3, password);
+                     preparedStmt2.execute();
+                    }
+                } 
+                	catch (SQLException | ClassNotFoundException sqlException) {
+                    sqlException.printStackTrace();
+                }
+
+        	}
+        });
+        btnNewButton.setForeground(UIManager.getColor("FormattedTextField.selectionBackground"));
+        btnNewButton.setBackground(UIManager.getColor("FormattedTextField.selectionBackground"));
+        btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 26));
+        btnNewButton.setBounds(544, 465, 162, 73);
+        
+        contentPane.add(btnNewButton);
+        label = new JLabel("");
+        label.setBackground(UIManager.getColor("FormattedTextField.selectionBackground"));
+        label.setBounds(10, -24, 1176, 573);
+        contentPane.add(label);
+    
+    }
+    //background
+    
+    
+    
+}

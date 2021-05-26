@@ -1,0 +1,133 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.JComboBox;
+import com.toedter.calendar.JDayChooser;
+import com.toedter.calendar.JCalendar;
+import java.awt.SystemColor;
+import com.toedter.calendar.JDateChooser;
+import javax.swing.SwingConstants;
+import java.awt.Insets;
+
+public class AddDrugs extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JTextField textField;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JTextField textField6;
+    private JTextField textField7;
+    private JTextField textField8;
+
+    private JPasswordField passwordField;
+    private JButton btnNewButton;
+    private JPanel contentPane;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+    	EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                	
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+    public AddDrugs() throws IOException {
+                try {
+                	 BackgroundPane background = new BackgroundPane();
+                     background.setBackground(ImageIO.read(new File("C:\\\\Users\\\\hp\\\\Desktop\\\\SEM-6\\\\javaswing\\\\images\\\\bg3.jpeg")));
+   
+                     JFrame frame = new JFrame("Welcome Page");
+                     frame.setBounds(1000,1000,373,419);
+                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                     frame.setContentPane(background);
+                    
+                     GridBagLayout gridBagLayout = new GridBagLayout();
+                     gridBagLayout.rowWeights = new double[]{0.0, 0.0};
+                     frame.getContentPane().setLayout(gridBagLayout);
+                     GridBagConstraints gbc_addNewDrugs = new GridBagConstraints();
+                     gbc_addNewDrugs.gridy = 0;
+                     gbc_addNewDrugs.anchor = GridBagConstraints.NORTHWEST;
+                     gbc_addNewDrugs.gridwidth = GridBagConstraints.REMAINDER;
+                     gbc_addNewDrugs.gridx = 2;
+                     JLabel addNewDrugs = new JLabel("Add new Drugs");
+                     addNewDrugs.setForeground(SystemColor.textHighlightText);
+                     addNewDrugs.setVerticalAlignment(SwingConstants.TOP);
+                     addNewDrugs.setFont(new Font("Sitka Banner", Font.BOLD, 38));
+                     frame.getContentPane().add(addNewDrugs, gbc_addNewDrugs);
+			         
+                     GridBagConstraints gbc_Username = new GridBagConstraints();
+                     gbc_Username.insets = new Insets(0, 0, 5, 5);
+                     gbc_Username.gridx = 0;
+                     gbc_Username.gridy = 10;
+                     gbc_Username.anchor = GridBagConstraints.SOUTHWEST;
+                     
+                     JLabel Username = new JLabel("Username");
+                     Username.setForeground(SystemColor.textHighlightText);
+                     Username.setVerticalAlignment(SwingConstants.TOP);
+                     Username.setFont(new Font("Sitka Banner", Font.BOLD, 32));
+                     frame.getContentPane().add(Username, gbc_Username);
+
+                     textField = new JTextField();
+                     textField.setBackground(UIManager.getColor("InternalFrame.activeTitleGradient"));
+                     textField.setFont(new Font("Tahoma", Font.PLAIN, 32));
+                     textField.setBounds(481, 170, 281, 68);
+                     textField.setColumns(13);
+                     textField.setAlignmentX(RIGHT_ALIGNMENT);
+                     GridBagConstraints gbc_textField = new GridBagConstraints();
+                     gbc_textField.insets = new Insets(0, 0, 5, 5);
+                     gbc_textField.gridy = 10;
+                     gbc_textField.gridx = 4;
+                     frame.getContentPane().add(textField, gbc_textField);
+			        
+			        
+			        
+			        frame.pack();
+			        frame.setLocationRelativeTo(null);
+			        frame.setVisible(true);
+			        System.out.println("Drugs Form");
+                }
+                finally {
+                	
+                }
+                
+    	} 
+ }

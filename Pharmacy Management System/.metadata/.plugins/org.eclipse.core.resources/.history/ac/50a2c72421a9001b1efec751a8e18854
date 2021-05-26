@@ -1,0 +1,26 @@
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+public class UserRegister extends JFrame {
+	public UserRegister() {
+		
+		JLabel lblNewLabel = new JLabel("Employee Register");
+		getContentPane().add(lblNewLabel, BorderLayout.NORTH);
+	}
+
+	 public static void main(String[] args) {
+	        EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                try {
+
+	                } catch (Exception e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        });
+	    }
+
+}
